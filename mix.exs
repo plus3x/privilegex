@@ -24,7 +24,7 @@ defmodule Setuid.Mixfile do
   end
 
   defp deps do
-    []
+    [{:credo, "~> 0.4", only: [:dev, :test]}]
   end
 
   defp package do
