@@ -2,7 +2,11 @@ defmodule SetuidTest do
   use ExUnit.Case
   doctest Setuid
 
-  test "the truth" do
-    assert 1 + 1 == 2
+  test "#getuid" do
+    assert Setuid.getuid != 0
+  end
+
+  test "#getgid" do
+    assert Setuid.getgid != 0
   end
 end

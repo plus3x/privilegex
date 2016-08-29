@@ -2,6 +2,16 @@
 
 **TODO: Add description**
 
+## Make
+
+[Instruction](http://andrealeopardi.com/posts/using-c-from-elixir-with-nifs)
+
+Compile C:
+```bash
+$ cc -fPIC -I$(ERL_INCLUDE_PATH) -dynamiclib -undefined dynamic_lookup -o ./src/setuid.so ./src/setuid.c
+```
+ERL_INCLUDE_PATH - path to "include" directory contains "erl_nif.h"
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
