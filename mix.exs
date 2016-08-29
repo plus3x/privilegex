@@ -1,12 +1,26 @@
+defmodule Mix.Tasks.Compile.Setuid do
+  def run(_) do
+    {result, _errcode} = System.cmd("make", [])
+    IO.binwrite(result)
+  end
+end
+
 defmodule Setuid.Mixfile do
   use Mix.Project
+
+  @version "0.1.0"
+
+  @description """
+  OS module extention for setting and getting uid/gid
+  """
 
   def project do
     [app: :setuid,
      name: "Setuid",
-     version: "0.1.0",
+     version: @version,
+     compilers: [:setuid] ++ Mix.compilers,
      elixir: "~> 1.3",
-     description: description,
+     description: @description,
      package: package,
      deps: deps,
      source_url: "https://github.com/plus3x/setuid",
@@ -15,12 +29,6 @@ defmodule Setuid.Mixfile do
 
   def application do
     [applications: [:logger]]
-  end
-
-  defp description do
-    """
-    OS module extention for setting and getting uid/gid
-    """
   end
 
   defp deps do
