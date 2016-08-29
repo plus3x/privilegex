@@ -3,9 +3,11 @@ defmodule Mix.Tasks.Compile.Setuid do
     File.rm_rf! "priv"
     File.mkdir "priv"
 
-    {result, _errcode} = System.cmd("make", [])
+    {result, _errcode} = System.cmd("make", ["priv/setuid.so"], stderr_to_stdout: true)
 
     IO.binwrite(result)
+
+    Mix.Project.build_structure
   end
 end
 
