@@ -1,0 +1,14 @@
+language: elixir
+
+elixir:
+  - 1.3.0
+
+otp_release:
+  - 19.0
+
+env:
+  - MIX_ENV=test
+
+script:
+  - mix credo --strict
+  - mix test
