@@ -1,6 +1,10 @@
 defmodule Mix.Tasks.Compile.Setuid do
   def run(_) do
+    File.rm_rf! "priv"
+    File.mkdir "priv"
+
     {result, _errcode} = System.cmd("make", [])
+
     IO.binwrite(result)
   end
 end

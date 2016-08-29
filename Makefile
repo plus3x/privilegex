@@ -6,7 +6,7 @@ NIF_SRC=\
 	src/setuid.c
 
 priv/setuid.so: $(NIF_SRC)
-	$(CC) -O3 -fPIC -I$(ERLANG_PATH) -dynamiclib -undefined dynamic_lookup -o $@ $(NIF_SRC)
+	$(CC) -g -O3 -fPIC -Wall -I$(ERLANG_PATH) -dynamiclib -undefined dynamic_lookup -o $@ $(NIF_SRC)
 
 setuid:
 	mix compile
