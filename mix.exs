@@ -17,7 +17,7 @@ defmodule Privilegex.Mixfile do
   @version "0.1.0"
 
   @description """
-  Library for changing process privilages(setuid/setguid)
+  Library for changing process privileges(setuid/setguid)
   """
 
   def project do

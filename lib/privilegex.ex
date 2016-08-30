@@ -33,11 +33,11 @@ defmodule Privilegex do
   @spec getgrnam(String.t) :: {atom, Map.t}
   def getgrnam(_group_name), do: raise "NIF getgrnam/1 not implemented"
 
-  @doc "Change process privilage to given user name with same group name"
+  @doc "Change process privilege to given user name with same group name"
   @spec change(String.t) :: atom
   def change(user_name), do: change(user_name, user_name)
 
-  @doc "Change process privilage to given user name with group name"
+  @doc "Change process privilege to given user name with group name"
   @spec change(String.t, String.t) :: atom
   def change(user_name, group_name) do
     {:ok, %{uid: uid}} = getpwnam(user_name)
