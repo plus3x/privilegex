@@ -66,12 +66,36 @@ static ERL_NIF_TERM get_pwnam(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[
   return enif_make_tuple2(env, enif_make_atom(env, "ok"), pwd_map);
 }
 
+static ERL_NIF_TERM get_grnam(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
+  struct group *grp;
+  ErlNifBinary string;
+
+  if (!enif_inspect_binary(env, argv[0], &string))
+    return enif_make_badarg(env);
+
+  char *name = alloc_and_copy_to_cstring(&string);
+
+  grp = getgrnam(name);
+
+  if (grp == 0)
+    return enif_make_tuple2(env, enif_make_atom(env, "error"), enif_make_string(env, "Not found", ERL_NIF_LATIN1));
+
+  ERL_NIF_TERM grp_map = enif_make_new_map(env);
+
+  enif_make_map_put(env, grp_map, enif_make_atom(env, "gid"), enif_make_int(env, grp->gr_gid), &grp_map);
+  enif_make_map_put(env, grp_map, enif_make_atom(env, "name"), enif_make_string(env, grp->gr_name, ERL_NIF_LATIN1), &grp_map);
+  enif_make_map_put(env, grp_map, enif_make_atom(env, "passwd"), enif_make_string(env, grp->gr_passwd, ERL_NIF_LATIN1), &grp_map);
+
+  return enif_make_tuple2(env, enif_make_atom(env, "ok"), grp_map);
+}
+
 static ErlNifFunc nif_funcs[] = {
   {"getuid", 0, get_uid},
   {"setuid", 1, set_uid},
   {"getgid", 0, get_gid},
   {"setgid", 1, set_gid},
-  {"getpwnam", 1, get_pwnam}
+  {"getpwnam", 1, get_pwnam},
+  {"getgrnam", 1, get_grnam}
 };
 
 ERL_NIF_INIT(Elixir.Privilegex, nif_funcs, NULL, NULL, NULL, NULL)

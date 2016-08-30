@@ -6,9 +6,10 @@ defmodule Privilegex do
     :erlang.load_nif(path, 0)
   end
 
-  def getuid,       do: raise "NIF getuid/0 not implemented"
-  def setuid(_uid), do: raise "NIF setuid/1 not implemented"
-  def getgid,       do: raise "NIF getgid/0 not implemented"
-  def setgid(_gid), do: raise "NIF setgid/1 not implemented"
-  def getpwnam(_name), do: raise "NIF getpwnam/1 not implemented"
+  def getuid,                do: raise "NIF getuid/0 not implemented"
+  def setuid(_uid),          do: raise "NIF setuid/1 not implemented"
+  def getgid,                do: raise "NIF getgid/0 not implemented"
+  def setgid(_gid),          do: raise "NIF setgid/1 not implemented"
+  def getpwnam(_user_name),  do: raise "NIF getpwnam/1 not implemented"
+  def getgrnam(_group_name), do: raise "NIF getgrnam/1 not implemented"
 end
