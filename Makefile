@@ -15,15 +15,15 @@ else
 	endif
 endif
 
-all: priv/setuid.so
+all: priv/privilegex.so
 
 NIF_SRC=\
-	src/setuid.c
+	src/privilegex.c
 
-priv/setuid.so: $(NIF_SRC)
+priv/privilegex.so: $(NIF_SRC)
 	$(CC) $(CFLAGS) -shared $(LDFLAGS) -o $@ $(NIF_SRC)
 
-setuid:
+privilegex:
 	mix compile
 
-.PHONY: all setuid
+.PHONY: all privilegex

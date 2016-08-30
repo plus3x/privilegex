@@ -1,8 +1,8 @@
-defmodule Setuid do
+defmodule Privilegex do
   @on_load :load_nifs
 
   def load_nifs do
-    path = :filename.join(:code.priv_dir(:setuid), 'setuid')
+    path = :filename.join(:code.priv_dir(:privilegex), 'privilegex')
     :erlang.load_nif(path, 0)
   end
 

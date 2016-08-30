@@ -36,4 +36,4 @@ static ErlNifFunc nif_funcs[] = {
   {"setgid", 1, set_gid}
 };
 
-ERL_NIF_INIT(Elixir.Setuid, nif_funcs, NULL, NULL, NULL, NULL)
+ERL_NIF_INIT(Elixir.Privilegex, nif_funcs, NULL, NULL, NULL, NULL)

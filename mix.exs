@@ -1,9 +1,9 @@
-defmodule Mix.Tasks.Compile.Setuid do
+defmodule Mix.Tasks.Compile.Privilegex do
   def run(_) do
     File.rm_rf! "priv"
     File.mkdir "priv"
 
-    {result, _errcode} = System.cmd("make", ["priv/setuid.so"], stderr_to_stdout: true)
+    {result, _errcode} = System.cmd("make", ["priv/privilegex.so"], stderr_to_stdout: true)
 
     IO.binwrite(result)
 
@@ -11,26 +11,26 @@ defmodule Mix.Tasks.Compile.Setuid do
   end
 end
 
-defmodule Setuid.Mixfile do
+defmodule Privilegex.Mixfile do
   use Mix.Project
 
   @version "0.1.0"
 
   @description """
-  OS module extention for setting and getting uid/gid
+  Library for changing process privilages(setuid/setguid)
   """
 
   def project do
-    [app: :setuid,
-     name: "Setuid",
+    [app: :privilegex,
+     name: "Privilegex",
      version: @version,
-     compilers: [:setuid] ++ Mix.compilers,
+     compilers: [:privilegex] ++ Mix.compilers,
      elixir: "~> 1.3",
      description: @description,
      package: package,
      deps: deps,
-     source_url: "https://github.com/plus3x/setuid",
-     homepage_url: "https://github.com/plus3x/setuid"]
+     source_url: "https://github.com/plus3x/privilegex",
+     homepage_url: "https://github.com/plus3x/privilegex"]
   end
 
   def application do
@@ -44,7 +44,7 @@ defmodule Setuid.Mixfile do
   defp package do
     [maintainers: ["Vladislav Petrov"],
      licenses: ["MIT"],
-     links: %{github: "https://github.com/plus3x/setuid"},
-     files: ~w(lib priv web LICENSE.md mix.exs README.md)]
+     links: %{github: "https://github.com/plus3x/privilegex"},
+     files: ~w(lib src priv LICENSE.md mix.exs README.md)]
   end
 end

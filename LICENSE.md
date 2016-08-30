@@ -1,6 +1,6 @@
 (MIT License)
 
-Copyright (c) 2013 [Ramesh Nair](http://www.hiddentao.com/)
+Copyright (c) 2016 [Vladislav Petrov](http://github.com/plus3x)
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
