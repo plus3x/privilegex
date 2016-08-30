@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/plus3x/setuid.png?branch=master)](http://travis-ci.org/plus3x/setuid)
+
 # Setuid
 
 **TODO: Add description**
