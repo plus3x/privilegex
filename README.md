@@ -1,6 +1,10 @@
-[![Build Status](https://secure.travis-ci.org/plus3x/privilegex.png?branch=master)](http://travis-ci.org/plus3x/privilegex)
+Privilegex
+===
 
-# Privilegex
+[![Quality](https://img.shields.io/codeclimate/github/plus3x/privilegex.svg?style=flat-square)](https://codeclimate.com/github/plus3x/privilegex)
+[![Build Status](https://secure.travis-ci.org/plus3x/privilegex.png?branch=master)](http://travis-ci.org/plus3x/privilegex)
+[![Deps Status](https://beta.hexfaktor.org/badge/all/github/rrrene/inch_ex.svg)](https://beta.hexfaktor.org/github/plus3x/privilegex)
+[![Inline docs](http://inch-ci.org/github/rrrene/inch_ex.svg?branch=master)](http://inch-ci.org/github/plus3x/privilegex)
 
 **TODO: Add description**
 

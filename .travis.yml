@@ -12,3 +12,7 @@ env:
 script:
   - mix credo --strict
   - mix test
+
+after_script:
+  - mix deps.get --only docs
+  - MIX_ENV=docs mix inch.report

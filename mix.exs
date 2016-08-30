@@ -30,7 +30,8 @@ defmodule Privilegex.Mixfile do
      package: package,
      deps: deps,
      source_url: "https://github.com/plus3x/privilegex",
-     homepage_url: "https://github.com/plus3x/privilegex"]
+     homepage_url: "https://github.com/plus3x/privilegex",
+     docs: [extras: ["README.md"]]]
   end
 
   def application do
@@ -38,7 +39,9 @@ defmodule Privilegex.Mixfile do
   end
 
   defp deps do
-    [{:credo, "~> 0.4", only: [:dev, :test]}]
+    [{:credo, "~> 0.4", only: [:dev, :test]},
+     {:inch_ex, "~> 0.5", only: :docs},
+     {:ex_doc, "~> 0.12", only: :docs}]
   end
 
   defp package do
