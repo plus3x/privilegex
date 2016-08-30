@@ -10,4 +10,5 @@ defmodule Privilegex do
   def setuid(_uid), do: raise "NIF setuid/1 not implemented"
   def getgid,       do: raise "NIF getgid/0 not implemented"
   def setgid(_gid), do: raise "NIF setgid/1 not implemented"
+  def getpwnam(_name), do: raise "NIF getpwnam/1 not implemented"
 end
