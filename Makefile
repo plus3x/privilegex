@@ -15,10 +15,10 @@ else
 	endif
 endif
 
-all: priv/privilegex.so
-
 NIF_SRC=\
 	src/privilegex.c
+
+all: privilegex
 
 priv/privilegex.so: $(NIF_SRC)
 	$(CC) $(CFLAGS) -shared $(LDFLAGS) -o $@ $(NIF_SRC)

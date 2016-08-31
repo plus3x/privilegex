@@ -17,7 +17,7 @@ defmodule Privilegex.Mixfile do
   @version "0.1.0"
 
   @description """
-  Library for changing process privileges(setuid/setguid)
+  Privilegex is a library for changing an elixir process's privileges(setuid/setgid) from the inside
   """
 
   def project do
